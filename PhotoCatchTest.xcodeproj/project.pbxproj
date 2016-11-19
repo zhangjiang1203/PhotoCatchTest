@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72027A94B35C894BC0BB5D35 /* libPods-PhotoCatchTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 352533E79B6CDC535649B914 /* libPods-PhotoCatchTest.a */; };
 		CF3DA8801DE03B7200A6077B /* imageState_Nor.png in Resources */ = {isa = PBXBuildFile; fileRef = CF3DA8761DE03B7100A6077B /* imageState_Nor.png */; };
 		CF3DA8811DE03B7200A6077B /* imageState_Sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF3DA8771DE03B7100A6077B /* imageState_Sel@2x.png */; };
 		CF3DA8821DE03B7200A6077B /* FCPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3DA87A1DE03B7200A6077B /* FCPhotoManager.m */; };
@@ -26,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		352533E79B6CDC535649B914 /* libPods-PhotoCatchTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PhotoCatchTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3667435CFB7D714D14C34FE1 /* Pods-PhotoCatchTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoCatchTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoCatchTest/Pods-PhotoCatchTest.release.xcconfig"; sourceTree = "<group>"; };
+		611EB53AB21B0B7521B1F393 /* Pods-PhotoCatchTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoCatchTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoCatchTest/Pods-PhotoCatchTest.debug.xcconfig"; sourceTree = "<group>"; };
 		CF3DA8761DE03B7100A6077B /* imageState_Nor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageState_Nor.png; sourceTree = "<group>"; };
 		CF3DA8771DE03B7100A6077B /* imageState_Sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "imageState_Sel@2x.png"; sourceTree = "<group>"; };
 		CF3DA8791DE03B7200A6077B /* FCPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCPhotoManager.h; sourceTree = "<group>"; };
@@ -58,12 +62,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72027A94B35C894BC0BB5D35 /* libPods-PhotoCatchTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5640B75A046A85CFCFECA1BC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				352533E79B6CDC535649B914 /* libPods-PhotoCatchTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CF3DA8731DE03A6B00A6077B /* FCPhotoManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +128,8 @@
 			children = (
 				CF8BC0A71DDF4B040026BD04 /* PhotoCatchTest */,
 				CF8BC0A61DDF4B040026BD04 /* Products */,
+				F5207F8FB7974CFA9617B71D /* Pods */,
+				5640B75A046A85CFCFECA1BC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +166,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F5207F8FB7974CFA9617B71D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				611EB53AB21B0B7521B1F393 /* Pods-PhotoCatchTest.debug.xcconfig */,
+				3667435CFB7D714D14C34FE1 /* Pods-PhotoCatchTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +182,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF8BC0BC1DDF4B040026BD04 /* Build configuration list for PBXNativeTarget "PhotoCatchTest" */;
 			buildPhases = (
+				837E5203642852B8B6A3B575 /* [CP] Check Pods Manifest.lock */,
 				CF8BC0A11DDF4B040026BD04 /* Sources */,
 				CF8BC0A21DDF4B040026BD04 /* Frameworks */,
 				CF8BC0A31DDF4B040026BD04 /* Resources */,
+				3D4DBE752022C8197B59BF1A /* [CP] Embed Pods Frameworks */,
+				F7B59FE3163813833FF0B48A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -222,6 +249,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D4DBE752022C8197B59BF1A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoCatchTest/Pods-PhotoCatchTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		837E5203642852B8B6A3B575 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F7B59FE3163813833FF0B48A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PhotoCatchTest/Pods-PhotoCatchTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CF8BC0A11DDF4B040026BD04 /* Sources */ = {
@@ -353,6 +428,7 @@
 		};
 		CF8BC0BD1DDF4B040026BD04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 611EB53AB21B0B7521B1F393 /* Pods-PhotoCatchTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5MZ23RYWE3;
@@ -365,6 +441,7 @@
 		};
 		CF8BC0BE1DDF4B040026BD04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3667435CFB7D714D14C34FE1 /* Pods-PhotoCatchTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5MZ23RYWE3;
