@@ -37,9 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initMyBigImageListUI];
-    
 }
-
 
 -(void)initMyBigImageListUI{
     self.view.backgroundColor = [UIColor whiteColor];
@@ -219,6 +217,4 @@
     Rect.origin.y    = center.y - (Rect.size.height /2.0);
     completion(Rect);
 }
-
-
 @end

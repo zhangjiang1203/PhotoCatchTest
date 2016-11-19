@@ -14,7 +14,7 @@
 #define KScreenW [UIScreen mainScreen].bounds.size.width
 #define KScreenH [UIScreen mainScreen].bounds.size.height
 
-@interface FCSmallImageViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface FCSmallImageViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     NSArray<PHAsset*> *allImageArr;
 }
@@ -156,8 +156,48 @@
             [weakSelf.myCollectionView reloadData];
         };
         [self.navigationController pushViewController:bigVC animated:YES];        
+    }else{
+        if ([FCPhotoManager FCHaveCameraAuthority]) {
+            //相机拍照
+            UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+                UIImagePickerController * picker = [[UIImagePickerController alloc]init];
+                picker.delegate = self;
+                picker.allowsEditing = NO;
+                picker.sourceType = sourceType;
+                [self presentViewController:picker animated:YES completion:nil];
+            }else{
+                NSLog(@"该设备没有摄像头");
+            }
+        }
     }
 }
 
+
+#pragma mark -- 照相的代理的方法
+/**
+ *  写入相册
+ */
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+/**
+ *  写入相册后的方法
+ */
+- (void)image: (UIImage *) image didFinishSavingWithError: (NSError *) error contextInfo: (void *) contextInfo{
+    if (!error) {
+        PHAsset * asset = [[FCPhotoManager getAllAssetInPhotoAblumWithAscending:YES] lastObject];
+        FCPhotoModel * model = [[FCPhotoModel alloc]init];
+        model.asset = asset;
+        model.imageName = [asset valueForKey:@"filename"];
+        [_selectedImageArr addObject:model];
+    }
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
